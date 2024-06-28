@@ -72,7 +72,7 @@
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition x:Name="gridSaleCol0"
-                                      Width="200"/>
+                                      Width="190"/>
                     <ColumnDefinition x:Name="gridSaleCol1"
                                       Width="60"/>
                     <ColumnDefinition x:Name="gridSaleCol2"/>
