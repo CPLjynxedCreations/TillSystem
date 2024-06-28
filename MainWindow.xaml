@@ -7,15 +7,16 @@
         mc:Ignorable="d"
         Title="Till 2024"
         Height="620"
-        Width="1200"
-        MaxWidth="1200"
+        Width="1215"
+        MaxWidth="1215"
         MaxHeight="620"
         ResizeMode="NoResize" 
         WindowStartupLocation="CenterScreen"
         Background="#FF0B0B1D">
+
     <Grid x:Name="Screen"
-            Width="1200"
-            Height="580"
+          Width="1200"
+          Height="580"
           VerticalAlignment="Top"
           HorizontalAlignment="Left">
         <Border x:Name="SaleScreenBorder"
