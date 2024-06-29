@@ -237,6 +237,7 @@
                               Grid.Column="1"
                               Grid.Row="1"
                               Content="Hello"/>
+                              <!-- WILL BE THE TIME NAME -->
             </Grid>
         </Border>
         <!-- DEFINE SALE BUTTON GRID -->
