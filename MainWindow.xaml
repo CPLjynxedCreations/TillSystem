@@ -70,13 +70,52 @@
                     <RowDefinition x:Name="gridSaleRow18"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition x:Name="gridSaleCol2"/>
+                    <ColumnDefinition x:Name="gridSaleCol2" Width="42"/>
                     <ColumnDefinition x:Name="gridSaleCol0"
                                       Width="190"/>
                     <ColumnDefinition x:Name="gridSaleCol1"
                                       Width="60"/>
                 </Grid.ColumnDefinitions>
-
+                <!-- WILL BE THE TIME NAME .cs-->
+                <!-- DEFINE SALE SCREEN ROW BORDERS-->
+                <Grid x:Name="ItemRow1" Grid.ColumnSpan="3" Grid.Row="1">
+                    <ToggleButton x:Name="ItemRow1btn"
+                                  Style="{DynamicResource btnItemList}"
+                                  Grid.Column="0"
+                                  Content="@@"/>
+                    <TextBlock x:Name="ItemRow1lbl1"
+                        Grid.Column="0"
+                        Text="1"
+                        Foreground="Black"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Margin="18,0,0,0"/>
+                    <TextBlock x:Name="ItemRow1lbl2"
+                        Text="1.00"
+                        Foreground="Black"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Margin="251,0,0,0"/>
+                </Grid>
+                <Grid x:Name="ItemRow2" Grid.ColumnSpan="3" Grid.Row="2">
+                    <ToggleButton x:Name="ItemRow2btn"
+                                  Style="{DynamicResource btnItemList}"
+                                  Grid.Column="0"
+                                  Content="@@"/>
+                    <TextBlock x:Name="ItemRow2lbl1"
+                        Grid.Column="0"
+                        Text="1"
+                        Foreground="Black"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Margin="18,0,0,0"/>
+                    <TextBlock x:Name="ItemRow2lbl2"
+                        Text="1.00"
+                        Foreground="Black"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Margin="251,0,0,0"/>
+                </Grid>
                 <!-- DEFINE SALE SCREEN ROW BORDERS-->
                 <Border Grid.Row="0"
                         x:Name="borderSaleScreenRow0"
@@ -185,8 +224,7 @@
                         x:Name="borderSaleScreenCol1"
                         BorderBrush="Black"
                         BorderThickness="0,0,0.5,0"
-                        Grid.RowSpan="19">
-                </Border>
+                        Grid.RowSpan="19"/>
                 <!-- SET SALE SCREEN LABELS -->
                 <TextBlock x:Name="saleScreenQuantityLabel"
                            Grid.Row="0"
@@ -233,11 +271,6 @@
                            FontSize="14"
                            FontWeight="Bold"
                            Foreground="Black"/>
-                <ToggleButton Style="{DynamicResource btnItemList}" x:Name="item"
-                              Grid.Column="1"
-                              Grid.Row="1"
-                              Content="Hello"/>
-                              <!-- WILL BE THE TIME NAME -->
             </Grid>
         </Border>
         <!-- DEFINE SALE BUTTON GRID -->
