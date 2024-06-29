@@ -53,6 +53,15 @@
                             <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
                         </Trigger>
                         <Trigger Property="IsChecked" Value="True">
+                            <!-- // FOR I = MAKE IT 19. IF EMPTY BUTTON DISABLED ELSE CLICKABLE
+                                if (item.Content == string.Empty)
+                                {
+                                    item.IsEnabled = false;
+                                }
+                                else
+                                {
+                                    item.IsEnabled = true;
+                                }-->
                             <Setter Property="Background" Value="{StaticResource Button.IsChecked.Background}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>

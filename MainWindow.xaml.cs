@@ -19,6 +19,7 @@ namespace TillSystem
         public MainWindow()
         {
             InitializeComponent();
+            /* FOR I = MAKE IT 19. IF EMPTY BUTTON DISABLED ELSE CLICKABLE
             if (item.Content == string.Empty)
             {
                 item.IsEnabled = false;
@@ -26,7 +27,7 @@ namespace TillSystem
             else
             {
                 item.IsEnabled = true;
-            }
+            }*/
         }
     }
 }
