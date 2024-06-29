@@ -16,8 +16,10 @@ namespace TillSystem
     /// </summary>
     public partial class MainWindow : Window
     {
+        //public string number = null;
         public MainWindow()
         {
+
             InitializeComponent();
             /* FOR I = MAKE IT 19. IF EMPTY BUTTON DISABLED ELSE CLICKABLE
             if (item.Content == string.Empty)
@@ -29,5 +31,20 @@ namespace TillSystem
                 item.IsEnabled = true;
             }*/
         }
+
+        /*private void btnTillNumber1_Click(object sender, RoutedEventArgs e)
+        {
+            // for i crap
+            if (ItemRow1lbl1.Text == string.Empty)
+            {
+                number = "1";
+                ItemRow1lbl1.Text = number;
+            }
+            else if (ItemRow2lbl1.Text == string.Empty)
+            {
+                number = "1";
+                ItemRow2lbl1.Text = number;
+            }
+        }*/
     }
 }

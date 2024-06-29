@@ -85,7 +85,7 @@
                                   Content="@@"/>
                     <TextBlock x:Name="ItemRow1lbl1"
                         Grid.Column="0"
-                        Text="1"
+                        Text=""
                         Foreground="Black"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
@@ -104,7 +104,7 @@
                                   Content="@@"/>
                     <TextBlock x:Name="ItemRow2lbl1"
                         Grid.Column="0"
-                        Text="1"
+                        Text=""
                         Foreground="Black"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
@@ -440,7 +440,7 @@
                     Grid.Column="3"
                     Grid.Row="7"
                     Content="1"
-                    Style="{DynamicResource styleBtnTillNumbers}"/>
+                    Style="{DynamicResource styleBtnTillNumbers}" Click="btnTillNumber1_Click"/>
             <Button x:Name="btnTillNumber2"
                     Grid.Column="4"
                     Grid.Row="7"
