@@ -185,7 +185,8 @@
                         x:Name="borderSaleScreenCol1"
                         BorderBrush="Black"
                         BorderThickness="0,0,0.5,0"
-                        Grid.RowSpan="19"/>
+                        Grid.RowSpan="19">
+                </Border>
                 <!-- SET SALE SCREEN LABELS -->
                 <TextBlock x:Name="saleScreenQuantityLabel"
                            Grid.Row="0"
@@ -232,13 +233,10 @@
                            FontSize="14"
                            FontWeight="Bold"
                            Foreground="Black"/>
-                <RadioButton Background="Green"
-                         Foreground="Black"
-                         x:Name="Test"
-                         Grid.Row="1"
-                         Grid.Column="1"
-                         BorderThickness="0"
-                         Content="ITEM HERE"/>
+                <ToggleButton Style="{DynamicResource btnItemList}" x:Name="item"
+                              Grid.Column="1"
+                              Grid.Row="1"
+                              Content="Hello"/>
             </Grid>
         </Border>
         <!-- DEFINE SALE BUTTON GRID -->

@@ -19,6 +19,14 @@ namespace TillSystem
         public MainWindow()
         {
             InitializeComponent();
+            if (item.Content == string.Empty)
+            {
+                item.IsEnabled = false;
+            }
+            else
+            {
+                item.IsEnabled = true;
+            }
         }
     }
 }
