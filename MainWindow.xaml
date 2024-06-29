@@ -67,16 +67,14 @@
                                    Height="30"/>
                     <RowDefinition x:Name="gridSaleRow17"
                                    Height="30"/>
-                    <RowDefinition x:Name="gridSaleRow18"
-                                   Height="30"/>
-                    <RowDefinition x:Name="gridSaleRow19"/>
+                    <RowDefinition x:Name="gridSaleRow18"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition x:Name="gridSaleCol2"/>
                     <ColumnDefinition x:Name="gridSaleCol0"
                                       Width="190"/>
                     <ColumnDefinition x:Name="gridSaleCol1"
                                       Width="60"/>
-                    <ColumnDefinition x:Name="gridSaleCol2"/>
                 </Grid.ColumnDefinitions>
 
                 <!-- DEFINE SALE SCREEN ROW BORDERS-->
@@ -174,6 +172,7 @@
                 <Border Grid.Row="18"
                         x:Name="borderSaleScreenRow18"
                         BorderBrush="Black"
+                        Background="DarkKhaki"
                         BorderThickness="0,0,0,0.5"
                         Grid.ColumnSpan="3"/>
                 <!-- DEFINE SALE SCREEN COLUMN BORDERS -->
@@ -181,16 +180,25 @@
                         x:Name="borderSaleScreenCol0"
                         BorderBrush="Black"
                         BorderThickness="0,0,0.5,0"
-                        Grid.RowSpan="20"/>
+                        Grid.RowSpan="19"/>
                 <Border Grid.Column="1"
                         x:Name="borderSaleScreenCol1"
                         BorderBrush="Black"
                         BorderThickness="0,0,0.5,0"
-                        Grid.RowSpan="20"/>
+                        Grid.RowSpan="19"/>
                 <!-- SET SALE SCREEN LABELS -->
-                <TextBlock x:Name="saleScreenItemLabel"
+                <TextBlock x:Name="saleScreenQuantityLabel"
                            Grid.Row="0"
                            Grid.Column="0"
+                           Text="QTY"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           FontSize="16"
+                           FontWeight="Bold"
+                           Foreground="Black"/>
+                <TextBlock x:Name="saleScreenItemLabel"
+                           Grid.Row="0"
+                           Grid.Column="1"
                            Text="ITEM"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"
@@ -199,22 +207,38 @@
                            Foreground="Black"/>
                 <TextBlock x:Name="saleScreenAmountLabel"
                            Grid.Row="0"
-                           Grid.Column="1"
+                           Grid.Column="2"
                            Text="PRICE"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"
                            FontSize="16"
                            FontWeight="Bold"
                            Foreground="Black"/>
-                <TextBlock x:Name="saleScreenQuantityLabel"
-                           Grid.Row="0"
-                           Grid.Column="2"
-                           Text="QTY"
+                <TextBlock x:Name="saleScreenTotalLabel"
+                           Grid.Row="19"
+                           Grid.Column="1"
+                           Text="TOTAL $ "
                            VerticalAlignment="Center"
-                           HorizontalAlignment="Center"
+                           HorizontalAlignment="Right"
                            FontSize="16"
                            FontWeight="Bold"
                            Foreground="Black"/>
+                <TextBlock x:Name="saleScreenTotalPriceLabel"
+                           Grid.Row="19"
+                           Grid.Column="2"
+                           Text="0.00"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           FontSize="14"
+                           FontWeight="Bold"
+                           Foreground="Black"/>
+                <RadioButton Background="Green"
+                         Foreground="Black"
+                         x:Name="Test"
+                         Grid.Row="1"
+                         Grid.Column="1"
+                         BorderThickness="0"
+                         Content="ITEM HERE"/>
             </Grid>
         </Border>
         <!-- DEFINE SALE BUTTON GRID -->
@@ -364,20 +388,20 @@
                     BorderBrush="RoyalBlue"
                     Grid.ColumnSpan="6"/>
 
-            <Button x:Name="btnTillNumberAdd"
+            <Button x:Name="btnTillNumberClear"
                     Grid.Column="3"
                     Grid.Row="8"
-                    Content="+"
+                    Content="CLEAR"
                     Style="{DynamicResource styleBtnTillNumbers}"/>
             <Button x:Name="btnTillNumber0"
                     Grid.Column="4"
                     Grid.Row="8"
                     Content="0"
                     Style="{DynamicResource styleBtnTillNumbers}"/>
-            <Button x:Name="btnTillNumberMin"
+            <Button x:Name="btnTillNumberDot"
                     Grid.Column="5"
                     Grid.Row="8"
-                    Content="-"
+                    Content="."
                     Style="{DynamicResource styleBtnTillNumbers}"/>
             <Button x:Name="btnTillNumber1"
                     Grid.Column="3"
