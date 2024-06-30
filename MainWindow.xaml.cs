@@ -1,6 +1,8 @@
 ﻿using System.Text;
+using System.Text.Json.Serialization.Metadata;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -16,7 +18,7 @@ namespace TillSystem
     /// </summary>
     public partial class MainWindow : Window
     {
-        //public string number = null;
+        public string number = null;
         public MainWindow()
         {
 
@@ -32,19 +34,20 @@ namespace TillSystem
             }*/
         }
 
-        /*private void btnTillNumber1_Click(object sender, RoutedEventArgs e)
+        private void btnTillNumber1_Click(object sender, RoutedEventArgs e)
         {
             // for i crap
-            if (ItemRow1lbl1.Text == string.Empty)
+            if (SaleScreenInputAmountLabel.Text == string.Empty)
             {
                 number = "1";
-                ItemRow1lbl1.Text = number;
+                SaleScreenInputAmountLabel.Text = number;
             }
+            /*
             else if (ItemRow2lbl1.Text == string.Empty)
             {
                 number = "1";
                 ItemRow2lbl1.Text = number;
-            }
-        }*/
+            }*/
+        }
     }
 }

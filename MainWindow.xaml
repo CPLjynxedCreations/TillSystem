@@ -82,16 +82,16 @@
                     <ToggleButton x:Name="ItemRow1btn"
                                   Style="{DynamicResource btnItemList}"
                                   Grid.Column="0"
-                                  Content="@@"/>
+                                  Content="#NAME#"/>
                     <TextBlock x:Name="ItemRow1lbl1"
                         Grid.Column="0"
-                        Text=""
+                        Text="#"
                         Foreground="Black"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
                         Margin="18,0,0,0"/>
                     <TextBlock x:Name="ItemRow1lbl2"
-                        Text="1.00"
+                        Text="###"
                         Foreground="Black"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
@@ -101,16 +101,16 @@
                     <ToggleButton x:Name="ItemRow2btn"
                                   Style="{DynamicResource btnItemList}"
                                   Grid.Column="0"
-                                  Content="@@"/>
+                                  Content="#NAME"/>
                     <TextBlock x:Name="ItemRow2lbl1"
                         Grid.Column="0"
-                        Text=""
+                        Text="#"
                         Foreground="Black"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
                         Margin="18,0,0,0"/>
                     <TextBlock x:Name="ItemRow2lbl2"
-                        Text="1.00"
+                        Text="###"
                         Foreground="Black"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
@@ -121,7 +121,8 @@
                         x:Name="borderSaleScreenRow0"
                         BorderBrush="Black"
                         BorderThickness="0,0,0,0.5"
-                        Background="DarkKhaki" Margin="0,0,0,542"/>
+                        Background="DarkKhaki"
+                        Margin="0,0,0,542"/>
                     <Border
                         x:Name="borderSaleScreenRow1"
                         BorderBrush="Black"
@@ -254,6 +255,15 @@
                            FontSize="16"
                            FontWeight="Bold"
                            Foreground="Black"/>
+                <TextBlock x:Name="SaleScreenInputAmountLabel"
+                           Grid.Row="19"
+                           Grid.Column="0"
+                           Text="#"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           FontSize="16"
+                           FontWeight="Bold"
+                           Foreground="Black"/>
                 <TextBlock x:Name="SaleScreenTotalLabel"
                            Grid.Row="19"
                            Grid.Column="1"
@@ -266,7 +276,7 @@
                 <TextBlock x:Name="SaleScreenTotalPriceLabel"
                            Grid.Row="19"
                            Grid.Column="2"
-                           Text="0.00"
+                           Text="###"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"
                            FontSize="14"
@@ -364,7 +374,8 @@
                     Width="900"
                     BorderThickness="0,0,0,0.5"
                     BorderBrush="RoyalBlue"
-                    Grid.ColumnSpan="6"/>
+                    Grid.ColumnSpan="6">
+            </Border>
             <Border Grid.Row="1"
                     x:Name="borderButtonRow1"
                     Height="65 "
