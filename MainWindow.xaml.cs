@@ -13,41 +13,70 @@ using System.Windows.Shapes;
 
 namespace TillSystem
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
-        public string number = null;
+        //needs int for the user number too
+        public string strUserNumber = string.Empty;
+        public string strItemName = string.Empty;
+        //needs int for the price too
+        //public int intItemPrice = null;
+        public string strItemPrice = string.Empty;
+
         public MainWindow()
         {
 
             InitializeComponent();
-            /* FOR I = MAKE IT 19. IF EMPTY BUTTON DISABLED ELSE CLICKABLE
-            if (item.Content == string.Empty)
+            SaleScreenInputAmountLabel.Text = string.Empty;
+            SaleScreenTotalPriceLabel.Text = string.Empty;
+            ItemRow1btn.Content = string.Empty;
+            ItemRow1lbl1.Text = string.Empty;
+            ItemRow1lbl2.Text = string.Empty;
+            ItemRow2btn.Content = string.Empty;
+            ItemRow2lbl1.Text = string.Empty;
+            ItemRow2lbl2.Text = string.Empty;
+            
+            // FOR I = MAKE IT 19. IF EMPTY BUTTON DISABLED ELSE CLICKABLE
+            if (ItemRow1btn.Content == string.Empty)
             {
-                item.IsEnabled = false;
+                ItemRow1btn.IsEnabled = false;
             }
-            else
+            if (ItemRow2btn.Content == string.Empty)
             {
-                item.IsEnabled = true;
-            }*/
+                ItemRow2btn.IsEnabled = false;
+            }
         }
 
         private void btnTillNumber1_Click(object sender, RoutedEventArgs e)
         {
-            // for i crap
             if (SaleScreenInputAmountLabel.Text == string.Empty)
             {
-                number = "1";
-                SaleScreenInputAmountLabel.Text = number;
+                strUserNumber = "1";
+                SaleScreenInputAmountLabel.Text = strUserNumber;
             }
-            /*
-            else if (ItemRow2lbl1.Text == string.Empty)
+        }
+
+        private void btnItemTest_Click(object sender, RoutedEventArgs e)
+        {
+            if (strUserNumber == string.Empty)
             {
-                number = "1";
-                ItemRow2lbl1.Text = number;
-            }*/
+                strUserNumber = "1";
+            }
+            strItemName = Convert.ToString(btnItemTest.Content);
+            ItemRow1btn.IsEnabled = true;
+            ItemRow1btn.Content = strItemName;
+            strItemPrice = "35";
+            ItemRow1lbl2.Text = strItemPrice;
+            ItemRow1lbl1.Text = strUserNumber;
+            strUserNumber = string.Empty;
+        }
+
+        private void btnTillNumberClear_Click(object sender, RoutedEventArgs e)
+        {
+            if (SaleScreenInputAmountLabel.Text != string.Empty)
+            {
+                strUserNumber = string.Empty;
+                SaleScreenInputAmountLabel.Text = strUserNumber;
+            }
         }
     }
 }

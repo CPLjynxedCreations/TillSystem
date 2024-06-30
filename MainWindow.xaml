@@ -436,7 +436,7 @@
                     Grid.Column="3"
                     Grid.Row="8"
                     Content="CLEAR"
-                    Style="{DynamicResource styleBtnTillNumbers}"/>
+                    Style="{DynamicResource styleBtnTillNumbers}" Click="btnTillNumberClear_Click"/>
             <Button x:Name="btnTillNumber0"
                     Grid.Column="4"
                     Grid.Row="8"
@@ -492,6 +492,12 @@
                     Grid.Row="5"
                     Content="9"
                     Style="{DynamicResource styleBtnTillNumbers}"/>
+
+            <Button x:Name="btnItemTest"
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    Content="Pizza"
+                    FontSize="22" Click="btnItemTest_Click"/>
         </Grid>
     </Grid>
 </Window>

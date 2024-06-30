@@ -1,0 +1,19 @@
+﻿TO DO
+
+for each loop to disable all the sale screen items at the start
+
+int for items to add amounts
+	price
+	item amount
+	total price
+
+Create a couple more items
+finish number pad for click value
+
+**FUTURE**
+Create blank buttons for item creation
+if toggle button active clear the selected item
+	move other items up the grid
+			if btn.content empty move up
+		Maybe each line needs its on string value saved
+			to be cleared and replaced by the others
