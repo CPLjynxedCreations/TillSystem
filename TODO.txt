@@ -1,14 +1,17 @@
 ﻿TO DO
 
-for each loop to disable all the sale screen items at the start
-
-int for items to add amounts
-	price
-	item amount
-	total price
-
 Create a couple more items
-finish number pad for click value
+
+when nothing has been pressed after a number allow another number to be pressed and create a larger number
+	9+6 = 96
+
+after line clear due to empty line
+create string list for sale item list
+	check list to see if item added
+	if item added go through until found
+	if not added add to empty space for now.
+		it will all adjust to fill the blanks after remove in future
+	when an item is removed .remove
 
 **FUTURE**
 Create blank buttons for item creation
@@ -17,3 +20,12 @@ if toggle button active clear the selected item
 			if btn.content empty move up
 		Maybe each line needs its on string value saved
 			to be cleared and replaced by the others
+
+
+
+//CHECK TO SEE IF NUMBER IS A WHOLE NUMBER
+private float testNum = 20.3f;
+
+
+Debug.WriteLine((testNum % 1) == 0);
+            Debug.WriteLine(testNum);
