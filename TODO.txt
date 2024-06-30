@@ -1,4 +1,4 @@
-﻿TO DO
+TO DO
 
 for each loop to disable all the sale screen items at the start
 
@@ -6,6 +6,11 @@ int for items to add amounts
 	price
 	item amount
 	total price
+total price to add
+amount and item price to change on amount entered
+if button 1 pressed already and then 2 pressed total amount needs to = 12
+	then item pressed and adds 12
+
 
 Create a couple more items
 finish number pad for click value
@@ -17,3 +22,4 @@ if toggle button active clear the selected item
 			if btn.content empty move up
 		Maybe each line needs its on string value saved
 			to be cleared and replaced by the others
+			data to be saved in excel file
