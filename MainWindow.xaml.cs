@@ -17,7 +17,9 @@ namespace TillSystem
 {
     public partial class MainWindow : Window
     {
-        //needs int for the user number too
+        //****
+        private List<string> listSaleScreen = new List<string>();
+
         public string strItemName = string.Empty;
         public string strUserNumber = string.Empty;
         public string strItemPrice = string.Empty;
@@ -167,6 +169,9 @@ namespace TillSystem
         {
             intItemPrice = 22;
             strItemName = Convert.ToString(btnItemTest.Content);
+            //****
+            listSaleScreen.Add(strItemName);
+
             if (intUserNumber == 0)
             {
                 intUserNumber = 1;
@@ -208,6 +213,8 @@ namespace TillSystem
         {
             intItemPrice = 15;
             strItemName = Convert.ToString(btnItemTest2.Content);
+            //****
+            listSaleScreen.Add(strItemName);
             if (strUserNumber == strEmpty)
             {
                 intUserNumber = 1;
