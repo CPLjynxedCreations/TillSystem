@@ -1,5 +1,9 @@
 TO DO
 
+create list int for toggle buttons content
+	for loop to check content / empty 
+	add to existing / create new from loop
+
 Create a couple more items
 
 when nothing has been pressed after a number allow another number to be pressed and create a larger number
