@@ -17,7 +17,6 @@ namespace TillSystem
 {
     public partial class MainWindow : Window
     {
-        //needs int for the user number too
         public string strItemName = string.Empty;
         public string strUserNumber = string.Empty;
         public string strItemPrice = string.Empty;
@@ -141,12 +140,6 @@ namespace TillSystem
             {
                 ClearRow();
             }
-            //else if toggle button delete row
-            //shift rows();
-            //if row content null. (save row number)
-            //next until not null
-            //shift labels to null row
-            //repeat ShiftRows() until no blank spaces until after items
         }
         private void btnTillNumberCancel_Click(object sender, RoutedEventArgs e)
         {
@@ -173,37 +166,14 @@ namespace TillSystem
             }
             if (ItemRow1btn.Content == strEmpty || ItemRow1btn.Content == strItemName)
             {
-                ItemRow1btn.IsEnabled = true;
-                ItemRow1btn.Content = strItemName;
-                intRow1ItemAmount = intRow1ItemAmount + intUserNumber;
-                strUserNumber = intRow1ItemAmount.ToString();
-                ItemRow1lbl1.Text = strUserNumber;
-                intRow1LineTotal = intItemPrice * intRow1ItemAmount;
-                strItemPrice = intRow1LineTotal.ToString();
-                ItemRow1lbl2.Text = strItemPrice;
-                ClearInputStrings();
-                intUserNumber = 0;
-                SetSaleTotal();
+                AddSaleScreenRow1();
             }
             else if (ItemRow2btn.Content == strEmpty || ItemRow2btn.Content == strItemName)
             {
-                ItemRow2btn.IsEnabled = true;
-                ItemRow2btn.Content = strItemName;
-
-                intRow2ItemAmount = intRow2ItemAmount + intUserNumber;
-                strUserNumber = intRow2ItemAmount.ToString();
-                ItemRow2lbl1.Text = strUserNumber;
-
-                intRow2LineTotal = intItemPrice * intRow2ItemAmount;
-                strItemPrice = intRow2LineTotal.ToString();
-                ItemRow2lbl2.Text = strItemPrice;
-                ClearInputStrings();
-                SetSaleTotal();
+                AddSaleScreenRow2();
 
             }
         }
-
-
         private void btnItemTest2_Click(object sender, RoutedEventArgs e)
         {
             intItemPrice = 15;
@@ -214,30 +184,39 @@ namespace TillSystem
             }
             if (ItemRow1btn.Content == strEmpty || ItemRow1btn.Content == strItemName)
             {
-                ItemRow1btn.IsEnabled = true;
-                ItemRow1btn.Content = strItemName;
-                intRow1ItemAmount = intRow1ItemAmount + intUserNumber;
-                strUserNumber = intRow1ItemAmount.ToString();
-                ItemRow1lbl1.Text = strUserNumber;
-                intRow1LineTotal = intItemPrice * intRow1ItemAmount;
-                strItemPrice = intRow1LineTotal.ToString();
-                ItemRow1lbl2.Text = strItemPrice;
-                ClearInputStrings();
-                SetSaleTotal();
+                AddSaleScreenRow1();
             }
             else if (ItemRow2btn.Content == strEmpty || ItemRow2btn.Content == strItemName)
             {
-                ItemRow2btn.IsEnabled = true;
-                ItemRow2btn.Content = strItemName;
-                intRow2ItemAmount = intRow2ItemAmount + intUserNumber;
-                strUserNumber = intRow2ItemAmount.ToString();
-                ItemRow2lbl1.Text = strUserNumber;
-                intRow2LineTotal = intItemPrice * intRow2ItemAmount;
-                strItemPrice = intRow2LineTotal.ToString();
-                ItemRow2lbl2.Text = strItemPrice;
-                ClearInputStrings();
-                SetSaleTotal();
+                AddSaleScreenRow2();
             }
+        }
+
+        private void AddSaleScreenRow1()
+        {
+            ItemRow1btn.IsEnabled = true;
+            ItemRow1btn.Content = strItemName;
+            intRow1ItemAmount = intRow1ItemAmount + intUserNumber;
+            strUserNumber = intRow1ItemAmount.ToString();
+            ItemRow1lbl1.Text = strUserNumber;
+            intRow1LineTotal = intItemPrice * intRow1ItemAmount;
+            strItemPrice = intRow1LineTotal.ToString();
+            ItemRow1lbl2.Text = strItemPrice;
+            ClearInputStrings();
+            SetSaleTotal();
+        }
+        private void AddSaleScreenRow2()
+        {
+            ItemRow2btn.IsEnabled = true;
+            ItemRow2btn.Content = strItemName;
+            intRow2ItemAmount = intRow2ItemAmount + intUserNumber;
+            strUserNumber = intRow2ItemAmount.ToString();
+            ItemRow2lbl1.Text = strUserNumber;
+            intRow2LineTotal = intItemPrice * intRow2ItemAmount;
+            strItemPrice = intRow2LineTotal.ToString();
+            ItemRow2lbl2.Text = strItemPrice;
+            ClearInputStrings();
+            SetSaleTotal();
         }
 
         private void ItemRow1btn_Checked(object sender, RoutedEventArgs e)
@@ -268,25 +247,30 @@ namespace TillSystem
         {
             if (ItemRow1btn.IsChecked == true && intSaleRowSelection == 1)
             {
+                boolRow1Empty = true;
                 ItemRow1lbl1.Text = strEmpty;
                 ItemRow1lbl2.Text = strEmpty;
                 ItemRow1btn.Content = strEmpty;
                 intRow1LineTotal = 0;
                 intRow1ItemAmount = 0;
                 ItemRow1btn.IsChecked = false;
+                ItemRow1btn.IsEnabled = false;
                 SetSaleTotal();
             }
             if (ItemRow2btn.IsChecked == true && intSaleRowSelection == 2)
             {
+                boolRow2Empty = true;
                 ItemRow2lbl1.Text = strEmpty;
                 ItemRow2lbl2.Text = strEmpty;
                 ItemRow2btn.Content = strEmpty;
                 intRow2LineTotal = 0;
                 intRow2ItemAmount = 0;
                 ItemRow2btn.IsChecked = false;
+                ItemRow2btn.IsEnabled = false;
                 SetSaleTotal();
             }
         }
+
         private void ClearStartingStrings()
         {
             SaleScreenInputAmountLabel.Text = strEmpty;
@@ -298,6 +282,7 @@ namespace TillSystem
             ItemRow2lbl1.Text = strEmpty;
             ItemRow2lbl2.Text = strEmpty;
         }
+
         private void ClearInputStrings()
         {
             intUserNumber = 0;
@@ -305,7 +290,7 @@ namespace TillSystem
             strItemName = strEmpty;
             SaleScreenInputAmountLabel.Text = strEmpty;
         }
-        //cancel sale
+
         private void CancelSale()
         {
             strItemName = strEmpty;
@@ -326,6 +311,8 @@ namespace TillSystem
             ItemRow2lbl1.Text = strEmpty;
             ItemRow2lbl2.Text = strEmpty;
             SaleScreenTotalPriceLabel.Text = strStartSaleScreenTotalPriceLabel;
+            ItemRow1btn.IsEnabled = false;
+            ItemRow2btn.IsEnabled = false;
         }
     }
 }
