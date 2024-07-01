@@ -38,7 +38,7 @@ namespace TillSystem
 
         public MainWindow()
         {
-
+            //
             InitializeComponent();
             ClearStartingStrings();
         }
