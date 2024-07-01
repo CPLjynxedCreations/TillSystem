@@ -451,14 +451,14 @@
                     Grid.Row="8"
                     Content="OK"
                     Style="{DynamicResource styleBtnTillNumbers}"/>
-            
+
             <Button x:Name="btnTillNumberMinus"
                     Grid.Column="3"
                     Grid.Row="7"
                     Content="-"
                     Style="{DynamicResource styleBtnTillNumbers}"
                     Click="btnTillNumberMinus_Click"/>
-            
+
             <Button x:Name="btnTillNumber0"
                     Grid.Column="4"
                     Grid.Row="7"
@@ -470,7 +470,7 @@
                     Grid.Row="7"
                     Content="."
                     Style="{DynamicResource styleBtnTillNumbers}"/>
-            
+
             <Button x:Name="btnTillNumber1"
                     Grid.Column="3"
                     Grid.Row="6"
@@ -532,7 +532,7 @@
                     Content="Pizza"
                     FontSize="22"
                     Click="btnItemTest_Click"/>
-            
+
             <Button x:Name="btnItemTest2"
                     Grid.Column="0"
                     Grid.Row="1"

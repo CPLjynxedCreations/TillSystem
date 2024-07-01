@@ -17,10 +17,7 @@ namespace TillSystem
 {
     public partial class MainWindow : Window
     {
-        //****
-        private List<string> listSaleScreen = new List<string>();
-        private int intItemFoundLine = 0;
-
+        //needs int for the user number too
         public string strItemName = string.Empty;
         public string strUserNumber = string.Empty;
         public string strItemPrice = string.Empty;
@@ -38,7 +35,7 @@ namespace TillSystem
 
         public MainWindow()
         {
-            //
+
             InitializeComponent();
             ClearStartingStrings();
         }
@@ -170,9 +167,6 @@ namespace TillSystem
         {
             intItemPrice = 22;
             strItemName = Convert.ToString(btnItemTest.Content);
-            //****
-            listSaleScreen.Add(strItemName);
-
             if (intUserNumber == 0)
             {
                 intUserNumber = 1;
@@ -214,20 +208,35 @@ namespace TillSystem
         {
             intItemPrice = 15;
             strItemName = Convert.ToString(btnItemTest2.Content);
-            //****
             if (strUserNumber == strEmpty)
             {
                 intUserNumber = 1;
             }
-            //****
-            if (!listSaleScreen.Contains(strItemName))
+            if (ItemRow1btn.Content == strEmpty || ItemRow1btn.Content == strItemName)
             {
-                listSaleScreen.Add(strItemName);
-                AddSaleScreenItem();
+                ItemRow1btn.IsEnabled = true;
+                ItemRow1btn.Content = strItemName;
+                intRow1ItemAmount = intRow1ItemAmount + intUserNumber;
+                strUserNumber = intRow1ItemAmount.ToString();
+                ItemRow1lbl1.Text = strUserNumber;
+                intRow1LineTotal = intItemPrice * intRow1ItemAmount;
+                strItemPrice = intRow1LineTotal.ToString();
+                ItemRow1lbl2.Text = strItemPrice;
+                ClearInputStrings();
+                SetSaleTotal();
             }
-            else
+            else if (ItemRow2btn.Content == strEmpty || ItemRow2btn.Content == strItemName)
             {
-                CheckSaleScreenItems();
+                ItemRow2btn.IsEnabled = true;
+                ItemRow2btn.Content = strItemName;
+                intRow2ItemAmount = intRow2ItemAmount + intUserNumber;
+                strUserNumber = intRow2ItemAmount.ToString();
+                ItemRow2lbl1.Text = strUserNumber;
+                intRow2LineTotal = intItemPrice * intRow2ItemAmount;
+                strItemPrice = intRow2LineTotal.ToString();
+                ItemRow2lbl2.Text = strItemPrice;
+                ClearInputStrings();
+                SetSaleTotal();
             }
         }
 
@@ -247,74 +256,6 @@ namespace TillSystem
             intTotalSale = intRow1LineTotal + intRow2LineTotal;
             Convert.ToDecimal(intTotalSale);
             SaleScreenTotalPriceLabel.Text = intTotalSale.ToString("0.00");
-        }
-        //****
-        private void CheckSaleScreenItems()
-        {
-            if (ItemRow1btn.Content == strItemName)
-            {
-                intItemFoundLine = 1;
-                AddSaleScreenItem();
-            }
-            if (ItemRow2btn.Content == strItemName)
-            {
-                intItemFoundLine = 2;
-                AddSaleScreenItem();
-            }
-        }
-        private void AddSaleScreenItem()
-        {
-            if (intItemFoundLine == 1)
-            {
-                intRow1ItemAmount = intRow1ItemAmount + intUserNumber;
-                strUserNumber = intRow1ItemAmount.ToString();
-                ItemRow1lbl1.Text = strUserNumber;
-                intRow1LineTotal = intItemPrice * intRow1ItemAmount;
-                strItemPrice = intRow1LineTotal.ToString();
-                ItemRow1lbl2.Text = strItemPrice;
-                ClearInputStrings();
-                SetSaleTotal();
-            }
-            if (intItemFoundLine == 2)
-            {
-                intRow2ItemAmount = intRow2ItemAmount + intUserNumber;
-                strUserNumber = intRow2ItemAmount.ToString();
-                ItemRow2lbl1.Text = strUserNumber;
-                intRow2LineTotal = intItemPrice * intRow2ItemAmount;
-                strItemPrice = intRow2LineTotal.ToString();
-                ItemRow2lbl2.Text = strItemPrice;
-                ClearInputStrings();
-                SetSaleTotal();
-            }
-            if (intItemFoundLine == 0)
-            {
-                if (ItemRow1btn.Content == strEmpty)
-                {
-                    ItemRow1btn.IsEnabled = true;
-                    ItemRow1btn.Content = strItemName;
-                    intRow1ItemAmount = intRow1ItemAmount + intUserNumber;
-                    strUserNumber = intRow1ItemAmount.ToString();
-                    ItemRow1lbl1.Text = strUserNumber;
-                    intRow1LineTotal = intItemPrice * intRow1ItemAmount;
-                    strItemPrice = intRow1LineTotal.ToString();
-                    ItemRow1lbl2.Text = strItemPrice;
-                    ClearInputStrings();
-                    SetSaleTotal();
-                }
-                else if (ItemRow2btn.Content == strEmpty)
-                {
-                    ItemRow2btn.IsEnabled = true;
-                    ItemRow2btn.Content = strItemName;
-                    intRow2ItemAmount = intRow2ItemAmount + intUserNumber;
-                    strUserNumber = intRow2ItemAmount.ToString();
-                    ItemRow2lbl1.Text = strUserNumber;
-                    intRow2LineTotal = intItemPrice * intRow2ItemAmount;
-                    strItemPrice = intRow2LineTotal.ToString();
-                    ItemRow2lbl2.Text = strItemPrice;
-                    ClearInputStrings();
-                    SetSaleTotal();
-                }
-            }
         }
 
         private void SaleRowSelected()
@@ -364,7 +305,7 @@ namespace TillSystem
             strItemName = strEmpty;
             SaleScreenInputAmountLabel.Text = strEmpty;
         }
-
+        //cancel sale
         private void CancelSale()
         {
             strItemName = strEmpty;
