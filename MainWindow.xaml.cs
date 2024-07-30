@@ -258,6 +258,7 @@ namespace TillSystem
             ItemRow1lbl2.Text = strItemPrice;
             ClearInputStrings();
             SetSaleTotal();
+            CheckItemAmount();
         }
         private void AddSaleScreenRow2()
         {
@@ -271,6 +272,7 @@ namespace TillSystem
             ItemRow2lbl2.Text = strItemPrice;
             ClearInputStrings();
             SetSaleTotal();
+            CheckItemAmount();
         }
         private void AddSaleScreenRow3()
         {
@@ -284,6 +286,7 @@ namespace TillSystem
             ItemRow3lbl2.Text = strItemPrice;
             ClearInputStrings();
             SetSaleTotal();
+            CheckItemAmount();
         }
         #endregion
 
@@ -388,6 +391,34 @@ namespace TillSystem
                 SetSaleTotal();
                 boolMoveRow3 = false;
                 MoveItems();
+            }
+        }
+
+        private void CheckItemAmount()
+        {
+            if (intRow1ItemAmount == 0 && intRow1ItemAmount == 0)
+            {
+                ItemRow1lbl1.Text = strEmpty;
+                ItemRow1lbl2.Text = strEmpty;
+                ItemRow1btn.Content = strEmpty;
+                MoveItems();
+                ClearRow();
+            }
+            if (intRow2ItemAmount == 0 && intRow2ItemAmount == 0)
+            {
+                ItemRow2lbl1.Text = strEmpty;
+                ItemRow2lbl2.Text = strEmpty;
+                ItemRow2btn.Content = strEmpty;
+                MoveItems();
+                ClearRow();
+            }
+            if (intRow3ItemAmount == 0 && intRow3ItemAmount == 0)
+            {
+                ItemRow3lbl1.Text = strEmpty;
+                ItemRow3lbl2.Text = strEmpty;
+                ItemRow3btn.Content = strEmpty;
+                MoveItems();
+                ClearRow();
             }
         }
 
