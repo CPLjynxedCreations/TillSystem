@@ -117,7 +117,7 @@
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
                         Margin="251,0,0,0"/>
-                </Grid>                
+                </Grid>
                 <Grid x:Name="ItemRow3" Grid.ColumnSpan="3" Grid.Row="3">
                     <ToggleButton x:Name="ItemRow3btn"
                                   Style="{DynamicResource btnItemList}"
@@ -277,15 +277,6 @@
                            FontSize="16"
                            FontWeight="Bold"
                            Foreground="Black"/>
-                <TextBlock x:Name="SaleScreenInputAmountLabel"
-                           Grid.Row="19"
-                           Grid.Column="0"
-                           Text="#"
-                           VerticalAlignment="Center"
-                           HorizontalAlignment="Center"
-                           FontSize="16"
-                           FontWeight="Bold"
-                           Foreground="Black"/>
                 <TextBlock x:Name="SaleScreenTotalLabel"
                            Grid.Row="19"
                            Grid.Column="1"
@@ -396,8 +387,7 @@
                     Width="900"
                     BorderThickness="0,0,0,0.5"
                     BorderBrush="RoyalBlue"
-                    Grid.ColumnSpan="6">
-            </Border>
+                    Grid.ColumnSpan="6"/>
             <Border Grid.Row="1"
                     x:Name="borderButtonRow1"
                     Height="65 "
@@ -453,6 +443,27 @@
                     BorderThickness="0,0,0,0.5"
                     BorderBrush="RoyalBlue"
                     Grid.ColumnSpan="6"/>
+
+            <!-- DEFINE USER INPUT SCREEN -->
+            <Rectangle x:Name="rect"
+                       Grid.Column="3"
+                       Grid.Row="3"
+                       Grid.ColumnSpan="3"
+                       Fill="LightGray"
+                       Stroke="DarkGray"
+                       StrokeThickness="3"
+                       RadiusX="5"
+                       RadiusY="5"/>
+            <TextBlock x:Name="SaleScreenInputAmountLabel"
+                           Grid.Row="3"
+                           Grid.Column="3"
+                           Text="#"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Grid.ColumnSpan="3"
+                           FontSize="40"
+                           FontWeight="Bold"
+                           Foreground="Black"/>
 
             <Button x:Name="btnTillNumberClear"
                     Grid.Column="3"

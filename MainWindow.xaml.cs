@@ -57,7 +57,7 @@ namespace TillSystem
         }
         private void btnTillNumber1_Click(object sender, RoutedEventArgs e)
         {
-            if (SaleScreenInputAmountLabel.Text == strEmpty || SaleScreenInputAmountLabel.Text == "-")
+            if (SaleScreenInputAmountLabel.Text == strEmpty || SaleScreenInputAmountLabel.Text == "-" || SaleScreenInputAmountLabel.Text == "0")
             {
                 intUserNumber = 1;
                 if (boolIsMinus)
@@ -71,7 +71,7 @@ namespace TillSystem
         }
         private void btnTillNumber2_Click(object sender, RoutedEventArgs e)
         {
-            if (SaleScreenInputAmountLabel.Text == strEmpty || SaleScreenInputAmountLabel.Text == "-")
+            if (SaleScreenInputAmountLabel.Text == strEmpty || SaleScreenInputAmountLabel.Text == "-" || SaleScreenInputAmountLabel.Text == "0")
             {
                 intUserNumber = 2;
                 if (boolIsMinus)
@@ -85,7 +85,7 @@ namespace TillSystem
         }
         private void btnTillNumber3_Click(object sender, RoutedEventArgs e)
         {
-            if (SaleScreenInputAmountLabel.Text == strEmpty || SaleScreenInputAmountLabel.Text == "-")
+            if (SaleScreenInputAmountLabel.Text == strEmpty || SaleScreenInputAmountLabel.Text == "-" || SaleScreenInputAmountLabel.Text == "0")
             {
                 intUserNumber = 3;
                 if (boolIsMinus)
@@ -99,7 +99,7 @@ namespace TillSystem
         }
         private void btnTillNumber4_Click(object sender, RoutedEventArgs e)
         {
-            if (SaleScreenInputAmountLabel.Text == strEmpty || SaleScreenInputAmountLabel.Text == "-")
+            if (SaleScreenInputAmountLabel.Text == strEmpty || SaleScreenInputAmountLabel.Text == "-" || SaleScreenInputAmountLabel.Text == "0")
             {
                 intUserNumber = 4;
                 if (boolIsMinus)
@@ -113,7 +113,7 @@ namespace TillSystem
         }
         private void btnTillNumber5_Click(object sender, RoutedEventArgs e)
         {
-            if (SaleScreenInputAmountLabel.Text == strEmpty || SaleScreenInputAmountLabel.Text == "-")
+            if (SaleScreenInputAmountLabel.Text == strEmpty || SaleScreenInputAmountLabel.Text == "-" || SaleScreenInputAmountLabel.Text == "0")
             {
                 intUserNumber = 5;
                 if (boolIsMinus)
@@ -127,7 +127,7 @@ namespace TillSystem
         }
         private void btnTillNumber6_Click(object sender, RoutedEventArgs e)
         {
-            if (SaleScreenInputAmountLabel.Text == strEmpty || SaleScreenInputAmountLabel.Text == "-")
+            if (SaleScreenInputAmountLabel.Text == strEmpty || SaleScreenInputAmountLabel.Text == "-" || SaleScreenInputAmountLabel.Text == "0")
             {
                 intUserNumber = 6;
                 if (boolIsMinus)
@@ -141,7 +141,7 @@ namespace TillSystem
         }
         private void btnTillNumber7_Click(object sender, RoutedEventArgs e)
         {
-            if (SaleScreenInputAmountLabel.Text == strEmpty || SaleScreenInputAmountLabel.Text == "-")
+            if (SaleScreenInputAmountLabel.Text == strEmpty || SaleScreenInputAmountLabel.Text == "-" || SaleScreenInputAmountLabel.Text == "0")
             {
                 intUserNumber = 7;
                 if (boolIsMinus)
@@ -155,7 +155,7 @@ namespace TillSystem
         }
         private void btnTillNumber8_Click(object sender, RoutedEventArgs e)
         {
-            if (SaleScreenInputAmountLabel.Text == strEmpty || SaleScreenInputAmountLabel.Text == "-")
+            if (SaleScreenInputAmountLabel.Text == strEmpty || SaleScreenInputAmountLabel.Text == "-" || SaleScreenInputAmountLabel.Text == "0")
             {
                 intUserNumber = 8;
                 if (boolIsMinus)
@@ -169,7 +169,7 @@ namespace TillSystem
         }
         private void btnTillNumber9_Click(object sender, RoutedEventArgs e)
         {
-            if (SaleScreenInputAmountLabel.Text == strEmpty || SaleScreenInputAmountLabel.Text == "-")
+            if (SaleScreenInputAmountLabel.Text == strEmpty || SaleScreenInputAmountLabel.Text == "-" || SaleScreenInputAmountLabel.Text == "0")
             {
                 intUserNumber = 9;
                 if (boolIsMinus)
