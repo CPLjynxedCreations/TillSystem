@@ -23,14 +23,19 @@ namespace TillSystem
         public int intUserNumber = 0;
         public int intRow1ItemAmount = 0;
         public int intRow2ItemAmount = 0;
+        public int intRow3ItemAmount = 0;
         public int intItemPrice = 0;
         public int intRow1LineTotal = 0;
         public int intRow2LineTotal = 0;
+        public int intRow3LineTotal = 0;
         public int intTotalSale = 0;
         private int intSaleRowSelection;
         private string strStartSaleScreenTotalPriceLabel = "0.00";
         private string strEmpty = string.Empty;
         private int intCheckRowNeg = 0;
+
+        private bool boolMoveRow2;
+        private bool boolMoveRow3;
 
         public MainWindow()
         {
@@ -160,19 +165,11 @@ namespace TillSystem
         {
             intItemPrice = 22;
             strItemName = Convert.ToString(btnItemTest.Content);
-            if (intUserNumber == 0)
+            if (strUserNumber == strEmpty)
             {
                 intUserNumber = 1;
             }
-            if (ItemRow1btn.Content == strEmpty || ItemRow1btn.Content == strItemName)
-            {
-                AddSaleScreenRow1();
-            }
-            else if (ItemRow2btn.Content == strEmpty || ItemRow2btn.Content == strItemName)
-            {
-                AddSaleScreenRow2();
-
-            }
+            CheckRowStrings();
         }
         private void btnItemTest2_Click(object sender, RoutedEventArgs e)
         {
@@ -182,13 +179,46 @@ namespace TillSystem
             {
                 intUserNumber = 1;
             }
-            if (ItemRow1btn.Content == strEmpty || ItemRow1btn.Content == strItemName)
+            CheckRowStrings();
+        }
+        private void btnItemTest3_Click(object sender, RoutedEventArgs e)
+        {
+            intItemPrice = 30;
+            strItemName = Convert.ToString(btnItemTest3.Content);
+            if (strUserNumber == strEmpty)
+            {
+                intUserNumber = 1;
+            }
+            CheckRowStrings();
+        }
+
+        private void CheckRowStrings()
+        {
+            if (ItemRow1btn.Content == strItemName)
             {
                 AddSaleScreenRow1();
             }
-            else if (ItemRow2btn.Content == strEmpty || ItemRow2btn.Content == strItemName)
+            else if (ItemRow2btn.Content == strItemName)
             {
                 AddSaleScreenRow2();
+
+            }            
+            else if (ItemRow3btn.Content == strItemName)
+            {
+                AddSaleScreenRow3();
+
+            }
+            else if (ItemRow1btn.Content == strEmpty)
+            {
+                AddSaleScreenRow1();
+            }
+            else if (ItemRow2btn.Content == strEmpty)
+            {
+                AddSaleScreenRow2();
+            }            
+            else if (ItemRow3btn.Content == strEmpty)
+            {
+                AddSaleScreenRow3();
             }
         }
 
@@ -217,6 +247,19 @@ namespace TillSystem
             ItemRow2lbl2.Text = strItemPrice;
             ClearInputStrings();
             SetSaleTotal();
+        }        
+        private void AddSaleScreenRow3()
+        {
+            ItemRow3btn.IsEnabled = true;
+            ItemRow3btn.Content = strItemName;
+            intRow3ItemAmount = intRow3ItemAmount + intUserNumber;
+            strUserNumber = intRow3ItemAmount.ToString();
+            ItemRow3lbl1.Text = strUserNumber;
+            intRow3LineTotal = intItemPrice * intRow3ItemAmount;
+            strItemPrice = intRow3LineTotal.ToString();
+            ItemRow3lbl2.Text = strItemPrice;
+            ClearInputStrings();
+            SetSaleTotal();
         }
 
         private void ItemRow1btn_Checked(object sender, RoutedEventArgs e)
@@ -228,26 +271,31 @@ namespace TillSystem
         {
             intSaleRowSelection = 2;
             SaleRowSelected();
+        }        
+        private void ItemRow3btn_Checked(object sender, RoutedEventArgs e)
+        {
+            intSaleRowSelection = 3;
+            SaleRowSelected();
         }
 
         private void SetSaleTotal()
         {
-            intTotalSale = intRow1LineTotal + intRow2LineTotal;
+            intTotalSale = intRow1LineTotal + intRow2LineTotal + intRow3LineTotal;
             Convert.ToDecimal(intTotalSale);
             SaleScreenTotalPriceLabel.Text = intTotalSale.ToString("0.00");
         }
 
         private void SaleRowSelected()
         {
-            if (intSaleRowSelection == 1) { ItemRow2btn.IsChecked = false; }
-            if (intSaleRowSelection == 2) { ItemRow1btn.IsChecked = false; }
+            if (intSaleRowSelection == 1) { ItemRow2btn.IsChecked = false; ItemRow3btn.IsChecked = false; }
+            if (intSaleRowSelection == 2) { ItemRow1btn.IsChecked = false; ItemRow3btn.IsChecked = false; }
+            if (intSaleRowSelection == 3) { ItemRow1btn.IsChecked = false; ItemRow2btn.IsChecked = false; }
         }
 
         private void ClearRow()
         {
             if (ItemRow1btn.IsChecked == true && intSaleRowSelection == 1)
             {
-                boolRow1Empty = true;
                 ItemRow1lbl1.Text = strEmpty;
                 ItemRow1lbl2.Text = strEmpty;
                 ItemRow1btn.Content = strEmpty;
@@ -256,10 +304,10 @@ namespace TillSystem
                 ItemRow1btn.IsChecked = false;
                 ItemRow1btn.IsEnabled = false;
                 SetSaleTotal();
+                MoveItems();
             }
-            if (ItemRow2btn.IsChecked == true && intSaleRowSelection == 2)
+            if (ItemRow2btn.IsChecked == true && intSaleRowSelection == 2 || boolMoveRow2)
             {
-                boolRow2Empty = true;
                 ItemRow2lbl1.Text = strEmpty;
                 ItemRow2lbl2.Text = strEmpty;
                 ItemRow2btn.Content = strEmpty;
@@ -268,6 +316,55 @@ namespace TillSystem
                 ItemRow2btn.IsChecked = false;
                 ItemRow2btn.IsEnabled = false;
                 SetSaleTotal();
+                boolMoveRow2 = false;
+                MoveItems();
+            }
+            if (ItemRow3btn.IsChecked == true && intSaleRowSelection == 3 || boolMoveRow3)
+            {
+                ItemRow3lbl1.Text = strEmpty;
+                ItemRow3lbl2.Text = strEmpty;
+                ItemRow3btn.Content = strEmpty;
+                intRow3LineTotal = 0;
+                intRow3ItemAmount = 0;
+                ItemRow3btn.IsChecked = false;
+                ItemRow3btn.IsEnabled = false;
+                SetSaleTotal();
+                boolMoveRow3 = false;
+                MoveItems();
+            }
+        }
+
+        private void MoveItems()
+        {
+            if (ItemRow1btn.Content == strEmpty && ItemRow2btn.Content != strEmpty)
+            {
+                ItemRow1btn.Content = ItemRow2btn.Content;
+                intRow1ItemAmount = intRow2ItemAmount;
+                ItemRow1lbl1.Text = ItemRow2lbl1.Text;
+                intRow1LineTotal = intRow2LineTotal;
+                ItemRow1lbl2.Text = ItemRow2lbl2.Text;
+                boolMoveRow2 = true;
+                ItemRow1btn.IsEnabled = true;
+                SetSaleTotal();
+            }
+            else if (ItemRow1btn.Content == strEmpty && ItemRow2btn.Content == strEmpty)
+            {
+                return;
+            }
+            if (ItemRow2btn.Content == strEmpty && ItemRow3btn.Content != strEmpty)
+            {
+                ItemRow2btn.Content = ItemRow3btn.Content;
+                intRow2ItemAmount = intRow3ItemAmount;
+                ItemRow2lbl1.Text = ItemRow3lbl1.Text;
+                intRow2LineTotal = intRow3LineTotal;
+                ItemRow2lbl2.Text = ItemRow3lbl2.Text;
+                boolMoveRow3 = true;
+                ItemRow2btn.IsEnabled = true;
+                SetSaleTotal();
+            }
+            else if (ItemRow2btn.Content == strEmpty && ItemRow3btn.Content == strEmpty)
+            {
+                return;
             }
         }
 
@@ -281,6 +378,9 @@ namespace TillSystem
             ItemRow2btn.Content = strEmpty;
             ItemRow2lbl1.Text = strEmpty;
             ItemRow2lbl2.Text = strEmpty;
+            ItemRow3btn.Content = strEmpty;
+            ItemRow3lbl1.Text = strEmpty;
+            ItemRow3lbl2.Text = strEmpty;
         }
 
         private void ClearInputStrings()
@@ -299,9 +399,11 @@ namespace TillSystem
             intUserNumber = 0;
             intRow1ItemAmount = 0;
             intRow2ItemAmount = 0;
+            intRow3ItemAmount = 0;
             intItemPrice = 0;
             intRow1LineTotal = 0;
             intRow2LineTotal = 0;
+            intRow3LineTotal = 0;
             intTotalSale = 0;
             intSaleRowSelection = 0;
             ItemRow1btn.Content = strEmpty;
@@ -310,9 +412,13 @@ namespace TillSystem
             ItemRow2btn.Content = strEmpty;
             ItemRow2lbl1.Text = strEmpty;
             ItemRow2lbl2.Text = strEmpty;
+            ItemRow3btn.Content = strEmpty;
+            ItemRow3lbl1.Text = strEmpty;
+            ItemRow3lbl2.Text = strEmpty;
             SaleScreenTotalPriceLabel.Text = strStartSaleScreenTotalPriceLabel;
             ItemRow1btn.IsEnabled = false;
             ItemRow2btn.IsEnabled = false;
+            ItemRow3btn.IsEnabled = false;
         }
     }
 }

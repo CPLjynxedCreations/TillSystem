@@ -117,6 +117,26 @@
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
                         Margin="251,0,0,0"/>
+                </Grid>                
+                <Grid x:Name="ItemRow3" Grid.ColumnSpan="3" Grid.Row="3">
+                    <ToggleButton x:Name="ItemRow3btn"
+                                  Style="{DynamicResource btnItemList}"
+                                  Grid.Column="0"
+                                  Content="#NAME#"
+                                  Click="ItemRow3btn_Checked"/>
+                    <TextBlock x:Name="ItemRow3lbl1"
+                        Grid.Column="0"
+                        Text="#"
+                        Foreground="Black"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Margin="18,0,0,0"/>
+                    <TextBlock x:Name="ItemRow3lbl2"
+                        Text="###"
+                        Foreground="Black"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Margin="251,0,0,0"/>
                 </Grid>
                 <Grid x:Name="SaleScreenBorderGrid" Grid.ColumnSpan="3" Grid.RowSpan="19">
                     <Border Grid.Row="0"
@@ -539,6 +559,12 @@
                     Content="Burger"
                     FontSize="22"
                     Click="btnItemTest2_Click"/>
+            <Button x:Name="btnItemTest3"
+                    Grid.Column="0"
+                    Grid.Row="2"
+                    Content="Fish"
+                    FontSize="22"
+                    Click="btnItemTest3_Click"/>
         </Grid>
     </Grid>
 </Window>
