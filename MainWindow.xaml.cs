@@ -124,13 +124,9 @@ namespace TillSystem
                 {
                     intUserNumber = intUserNumber * -1;
                     PrintUserInput();
-                    //strUserNumberAdd = Convert.ToString(intUserNumber);
-                    //SaleScreenInputAmountLabel.Text = strUserNumberAdd;
                 }
                 else
                 {
-                    //strUserNumberAdd = Convert.ToString(intUserNumber);
-                    //SaleScreenInputAmountLabel.Text = strUserNumberAdd;
                     SaleScreenInputAmountLabel.Text = "-";
                 }
             }
@@ -149,7 +145,6 @@ namespace TillSystem
             }
             strUserNumber = Convert.ToString(intUserNumber);
             SaleScreenInputAmountLabel.Text = strUserNumber;
-            //SaleScreenInputAmountLabel.Text = strUserNumberAdd;
         }
         #endregion
 
