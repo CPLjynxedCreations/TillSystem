@@ -84,66 +84,72 @@
                                   Grid.Column="0"
                                   Content="#NAME#"
                                   Click="ItemRow1btn_Checked"/>
-                    <TextBlock x:Name="ItemRow1lbl1"
+                </Grid>
+                <TextBlock x:Name="ItemRow1lbl1"
                         Grid.Column="0"
+                        Grid.Row="1"
                         Text="#"
                         FontSize="18"
                         Foreground="Black"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center"
-                        Margin="18,0,0,0"/>
-                    <TextBlock x:Name="ItemRow1lbl2"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"/>
+                <TextBlock x:Name="ItemRow1lbl2"
+                        Grid.Column="2"
+                        Grid.Row="1"
                         Text="###"
                         FontSize="18"
                         Foreground="Black"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center"
-                        Margin="251,0,0,0"/>
-                </Grid>
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"/>
+                
                 <Grid x:Name="ItemRow2" Grid.ColumnSpan="3" Grid.Row="2">
                     <ToggleButton x:Name="ItemRow2btn"
                                   Style="{DynamicResource btnItemList}"
                                   Grid.Column="0"
                                   Content="#NAME#"
                                   Click="ItemRow2btn_Checked"/>
+                </Grid>
                     <TextBlock x:Name="ItemRow2lbl1"
                         Grid.Column="0"
+                        Grid.Row="2"
                         Text="#"
                         FontSize="18"
                         Foreground="Black"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center"
-                        Margin="18,0,0,0"/>
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"/>
                     <TextBlock x:Name="ItemRow2lbl2"
                         Text="###"
+                        Grid.Column="2"
+                        Grid.Row="2"
                         FontSize="18"
                         Foreground="Black"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center"
-                        Margin="251,0,0,0"/>
-                </Grid>
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"/>
+                
                 <Grid x:Name="ItemRow3" Grid.ColumnSpan="3" Grid.Row="3">
                     <ToggleButton x:Name="ItemRow3btn"
                                   Style="{DynamicResource btnItemList}"
                                   Grid.Column="0"
                                   Content="#NAME#"
                                   Click="ItemRow3btn_Checked"/>
+                </Grid>
                     <TextBlock x:Name="ItemRow3lbl1"
                         Grid.Column="0"
+                        Grid.Row="3"
                         Text="#"
                         FontSize="18"
                         Foreground="Black"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center"
-                        Margin="18,0,0,0"/>
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"/>
                     <TextBlock x:Name="ItemRow3lbl2"
                         Text="###"
+                        Grid.Column="2"
+                        Grid.Row="3"
                         FontSize="18"
                         Foreground="Black"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center"
-                        Margin="251,0,0,0"/>
-                </Grid>
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"/>
+                
                 <Grid x:Name="SaleScreenBorderGrid" Grid.ColumnSpan="3" Grid.RowSpan="19">
                     <Border Grid.Row="0"
                         x:Name="borderSaleScreenRow0"
