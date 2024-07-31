@@ -18,6 +18,7 @@ namespace TillSystem
     public partial class MainWindow : Window
     {
         public string strItemName = string.Empty;
+        public string strUserNumberAdd = string.Empty;
         public string strUserNumber = string.Empty;
         public string strItemPrice = string.Empty;
         public int intUserNumber = 0;
@@ -48,138 +49,55 @@ namespace TillSystem
         #region NUMBER PAD BUTTONS
         private void btnTillNumber0_Click(object sender, RoutedEventArgs e)
         {
-            if (SaleScreenInputAmountLabel.Text == strEmpty)
-            {
-                strUserNumber = "0";
-                intUserNumber = 0;
-                SaleScreenInputAmountLabel.Text = strUserNumber;
-            }
+            strUserNumberAdd += "0";
+            PrintUserInput();
         }
         private void btnTillNumber1_Click(object sender, RoutedEventArgs e)
         {
-            if (SaleScreenInputAmountLabel.Text == strEmpty || SaleScreenInputAmountLabel.Text == "-" || SaleScreenInputAmountLabel.Text == "0")
-            {
-                intUserNumber = 1;
-                if (boolIsMinus)
-                {
-                    intUserNumber = intUserNumber * -1;
-                }
-                boolIsMinus = false;
-                strUserNumber = Convert.ToString(intUserNumber);
-                SaleScreenInputAmountLabel.Text = strUserNumber;
-            }
+            strUserNumberAdd += "1";
+            PrintUserInput();
+
         }
         private void btnTillNumber2_Click(object sender, RoutedEventArgs e)
         {
-            if (SaleScreenInputAmountLabel.Text == strEmpty || SaleScreenInputAmountLabel.Text == "-" || SaleScreenInputAmountLabel.Text == "0")
-            {
-                intUserNumber = 2;
-                if (boolIsMinus)
-                {
-                    intUserNumber = intUserNumber * -1;
-                }
-                boolIsMinus = false;
-                strUserNumber = Convert.ToString(intUserNumber);
-                SaleScreenInputAmountLabel.Text = strUserNumber;
-            }
+            strUserNumberAdd += "2";
+            PrintUserInput();
+
         }
         private void btnTillNumber3_Click(object sender, RoutedEventArgs e)
         {
-            if (SaleScreenInputAmountLabel.Text == strEmpty || SaleScreenInputAmountLabel.Text == "-" || SaleScreenInputAmountLabel.Text == "0")
-            {
-                intUserNumber = 3;
-                if (boolIsMinus)
-                {
-                    intUserNumber = intUserNumber * -1;
-                }
-                boolIsMinus = false;
-                strUserNumber = Convert.ToString(intUserNumber);
-                SaleScreenInputAmountLabel.Text = strUserNumber;
-            }
+            strUserNumberAdd += "3";
+            PrintUserInput();
         }
         private void btnTillNumber4_Click(object sender, RoutedEventArgs e)
         {
-            if (SaleScreenInputAmountLabel.Text == strEmpty || SaleScreenInputAmountLabel.Text == "-" || SaleScreenInputAmountLabel.Text == "0")
-            {
-                intUserNumber = 4;
-                if (boolIsMinus)
-                {
-                    intUserNumber = intUserNumber * -1;
-                }
-                boolIsMinus = false;
-                strUserNumber = Convert.ToString(intUserNumber);
-                SaleScreenInputAmountLabel.Text = strUserNumber;
-            }
+            strUserNumberAdd += "4";
+            PrintUserInput();
         }
         private void btnTillNumber5_Click(object sender, RoutedEventArgs e)
         {
-            if (SaleScreenInputAmountLabel.Text == strEmpty || SaleScreenInputAmountLabel.Text == "-" || SaleScreenInputAmountLabel.Text == "0")
-            {
-                intUserNumber = 5;
-                if (boolIsMinus)
-                {
-                    intUserNumber = intUserNumber * -1;
-                }
-                boolIsMinus = false;
-                strUserNumber = Convert.ToString(intUserNumber);
-                SaleScreenInputAmountLabel.Text = strUserNumber;
-            }
+            strUserNumberAdd += "5";
+            PrintUserInput();
         }
         private void btnTillNumber6_Click(object sender, RoutedEventArgs e)
         {
-            if (SaleScreenInputAmountLabel.Text == strEmpty || SaleScreenInputAmountLabel.Text == "-" || SaleScreenInputAmountLabel.Text == "0")
-            {
-                intUserNumber = 6;
-                if (boolIsMinus)
-                {
-                    intUserNumber = intUserNumber * -1;
-                }
-                boolIsMinus = false;
-                strUserNumber = Convert.ToString(intUserNumber);
-                SaleScreenInputAmountLabel.Text = strUserNumber;
-            }
+            strUserNumberAdd += "6";
+            PrintUserInput();
         }
         private void btnTillNumber7_Click(object sender, RoutedEventArgs e)
         {
-            if (SaleScreenInputAmountLabel.Text == strEmpty || SaleScreenInputAmountLabel.Text == "-" || SaleScreenInputAmountLabel.Text == "0")
-            {
-                intUserNumber = 7;
-                if (boolIsMinus)
-                {
-                    intUserNumber = intUserNumber * -1;
-                }
-                boolIsMinus = false;
-                strUserNumber = Convert.ToString(intUserNumber);
-                SaleScreenInputAmountLabel.Text = strUserNumber;
-            }
+            strUserNumberAdd += "7";
+            PrintUserInput();
         }
         private void btnTillNumber8_Click(object sender, RoutedEventArgs e)
         {
-            if (SaleScreenInputAmountLabel.Text == strEmpty || SaleScreenInputAmountLabel.Text == "-" || SaleScreenInputAmountLabel.Text == "0")
-            {
-                intUserNumber = 8;
-                if (boolIsMinus)
-                {
-                    intUserNumber = intUserNumber * -1;
-                }
-                boolIsMinus = false;
-                strUserNumber = Convert.ToString(intUserNumber);
-                SaleScreenInputAmountLabel.Text = strUserNumber;
-            }
+            strUserNumberAdd += "8";
+            PrintUserInput();
         }
         private void btnTillNumber9_Click(object sender, RoutedEventArgs e)
         {
-            if (SaleScreenInputAmountLabel.Text == strEmpty || SaleScreenInputAmountLabel.Text == "-" || SaleScreenInputAmountLabel.Text == "0")
-            {
-                intUserNumber = 9;
-                if (boolIsMinus)
-                {
-                    intUserNumber = intUserNumber * -1;
-                }
-                boolIsMinus = false;
-                strUserNumber = Convert.ToString(intUserNumber);
-                SaleScreenInputAmountLabel.Text = strUserNumber;
-            }
+            strUserNumberAdd += "9";
+            PrintUserInput();
         }
         private void btnTillNumberClear_Click(object sender, RoutedEventArgs e)
         {
@@ -195,20 +113,43 @@ namespace TillSystem
         private void btnTillNumberCancel_Click(object sender, RoutedEventArgs e)
         {
             CancelSale();
+            ClearInputStrings();
         }
         private void btnTillNumberMinus_Click(object sender, RoutedEventArgs e)
         {
-            if (intUserNumber > 0)
+            if (!boolIsMinus)
             {
-                intUserNumber = intUserNumber * -1;
-                strUserNumber = Convert.ToString(intUserNumber);
-                SaleScreenInputAmountLabel.Text = strUserNumber;
+                boolIsMinus = true;
+                if (intUserNumber > 0)
+                {
+                    intUserNumber = intUserNumber * -1;
+                    PrintUserInput();
+                    //strUserNumberAdd = Convert.ToString(intUserNumber);
+                    //SaleScreenInputAmountLabel.Text = strUserNumberAdd;
+                }
+                else
+                {
+                    //strUserNumberAdd = Convert.ToString(intUserNumber);
+                    //SaleScreenInputAmountLabel.Text = strUserNumberAdd;
+                    SaleScreenInputAmountLabel.Text = "-";
+                }
             }
             else
             {
-                boolIsMinus = true;
-                SaleScreenInputAmountLabel.Text = "-";
+                boolIsMinus = false;
+                PrintUserInput();
             }
+        }
+        private void PrintUserInput()
+        {
+            intUserNumber = Convert.ToInt32(strUserNumberAdd);
+            if (boolIsMinus)
+            {
+                intUserNumber = intUserNumber * -1;
+            }
+            strUserNumber = Convert.ToString(intUserNumber);
+            SaleScreenInputAmountLabel.Text = strUserNumber;
+            //SaleScreenInputAmountLabel.Text = strUserNumberAdd;
         }
         #endregion
 
@@ -217,7 +158,7 @@ namespace TillSystem
         {
             intItemPrice = 22;
             strItemName = Convert.ToString(btnItemTest.Content);
-            if (strUserNumber == strEmpty)
+            if (strUserNumberAdd == strEmpty)
             {
                 intUserNumber = 1;
             }
@@ -227,7 +168,7 @@ namespace TillSystem
         {
             intItemPrice = 15;
             strItemName = Convert.ToString(btnItemTest2.Content);
-            if (strUserNumber == strEmpty)
+            if (strUserNumberAdd == strEmpty)
             {
                 intUserNumber = 1;
             }
@@ -237,7 +178,7 @@ namespace TillSystem
         {
             intItemPrice = 30;
             strItemName = Convert.ToString(btnItemTest3.Content);
-            if (strUserNumber == strEmpty)
+            if (strUserNumberAdd == strEmpty)
             {
                 intUserNumber = 1;
             }
@@ -251,8 +192,8 @@ namespace TillSystem
             ItemRow1btn.IsEnabled = true;
             ItemRow1btn.Content = strItemName;
             intRow1ItemAmount = intRow1ItemAmount + intUserNumber;
-            strUserNumber = intRow1ItemAmount.ToString();
-            ItemRow1lbl1.Text = strUserNumber;
+            strUserNumberAdd = intRow1ItemAmount.ToString();
+            ItemRow1lbl1.Text = strUserNumberAdd;
             intRow1LineTotal = intItemPrice * intRow1ItemAmount;
             strItemPrice = intRow1LineTotal.ToString();
             ItemRow1lbl2.Text = strItemPrice;
@@ -265,8 +206,8 @@ namespace TillSystem
             ItemRow2btn.IsEnabled = true;
             ItemRow2btn.Content = strItemName;
             intRow2ItemAmount = intRow2ItemAmount + intUserNumber;
-            strUserNumber = intRow2ItemAmount.ToString();
-            ItemRow2lbl1.Text = strUserNumber;
+            strUserNumberAdd = intRow2ItemAmount.ToString();
+            ItemRow2lbl1.Text = strUserNumberAdd;
             intRow2LineTotal = intItemPrice * intRow2ItemAmount;
             strItemPrice = intRow2LineTotal.ToString();
             ItemRow2lbl2.Text = strItemPrice;
@@ -279,8 +220,8 @@ namespace TillSystem
             ItemRow3btn.IsEnabled = true;
             ItemRow3btn.Content = strItemName;
             intRow3ItemAmount = intRow3ItemAmount + intUserNumber;
-            strUserNumber = intRow3ItemAmount.ToString();
-            ItemRow3lbl1.Text = strUserNumber;
+            strUserNumberAdd = intRow3ItemAmount.ToString();
+            ItemRow3lbl1.Text = strUserNumberAdd;
             intRow3LineTotal = intItemPrice * intRow3ItemAmount;
             strItemPrice = intRow3LineTotal.ToString();
             ItemRow3lbl2.Text = strItemPrice;
@@ -459,9 +400,8 @@ namespace TillSystem
         private void CancelSale()
         {
             strItemName = strEmpty;
-            strUserNumber = strEmpty;
+            strUserNumberAdd = strEmpty;
             strItemPrice = strEmpty;
-            intUserNumber = 0;
             intRow1ItemAmount = 0;
             intRow2ItemAmount = 0;
             intRow3ItemAmount = 0;
@@ -484,6 +424,7 @@ namespace TillSystem
             ItemRow1btn.IsEnabled = false;
             ItemRow2btn.IsEnabled = false;
             ItemRow3btn.IsEnabled = false;
+            boolIsMinus = false;
         }
         #endregion
 
@@ -506,8 +447,9 @@ namespace TillSystem
         private void ClearInputStrings()
         {
             intUserNumber = 0;
-            strUserNumber = strEmpty;
+            strUserNumberAdd = strEmpty;
             strItemName = strEmpty;
+            boolIsMinus = false;
             SaleScreenInputAmountLabel.Text = strEmpty;
         }
         #endregion
